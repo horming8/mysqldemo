@@ -1,9 +1,16 @@
 package hm.app.msqldemo.service;
 
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 import hm.app.msqldemo.domain.Product;
+import hm.app.msqldemo.repository.ProductRepository;
+import hm.app.msqldemo.service.common.CrudServiceImpl;
 
-public interface ProductService {
-    List<Product> findAll();
+@Service
+public class ProductService extends CrudServiceImpl<Product, String> {
+    
+    public ProductService(ProductRepository repository) {
+        super(repository);
+    }
+
 }

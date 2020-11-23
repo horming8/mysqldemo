@@ -1,24 +1,18 @@
 package hm.app.msqldemo.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hm.app.msqldemo.controller.common.CrudController;
 import hm.app.msqldemo.domain.Office;
-import hm.app.msqldemo.service.OfficeService;
-import lombok.AllArgsConstructor;
+import hm.app.msqldemo.service.common.CrudService;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/office")
-public class OfficeController {
-    
-    private OfficeService service;
+public class OfficeController extends CrudController<Office, String> {
 
-    @GetMapping
-    public List<Office> getAll() {
-        return service.findAll();
+    public OfficeController(CrudService<Office, String> service) {
+        super(service);
     }
+
 }

@@ -1,24 +1,18 @@
 package hm.app.msqldemo.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hm.app.msqldemo.controller.common.CrudController;
 import hm.app.msqldemo.domain.Order;
-import hm.app.msqldemo.service.OrderService;
-import lombok.AllArgsConstructor;
+import hm.app.msqldemo.service.common.CrudService;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/order")
-public class OrderController {
-    
-    private OrderService service;
+public class OrderController extends CrudController<Order, Long> {
 
-    @GetMapping
-    public List<Order> getAll() {
-        return service.findAll();
+    public OrderController(CrudService<Order, Long> service) {
+        super(service);
     }
+
 }

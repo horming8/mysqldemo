@@ -1,9 +1,16 @@
 package hm.app.msqldemo.service;
 
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 import hm.app.msqldemo.domain.OrderDetail;
+import hm.app.msqldemo.repository.OrderDetailRepository;
+import hm.app.msqldemo.service.common.CrudServiceImpl;
 
-public interface OrderDetailService {
-    List<OrderDetail> findAll();
+@Service
+public class OrderDetailService extends CrudServiceImpl<OrderDetail, Long> {
+
+    public OrderDetailService(OrderDetailRepository repository) {
+        super(repository);
+    }
+
 }
