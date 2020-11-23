@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 import hm.app.msqldemo.domain.Customer;
 import hm.app.msqldemo.repository.CustomerRepository;
-import hm.app.msqldemo.service.common.CrudServiceImpl;
+import hm.app.msqldemo.service.common.CrudService;
 
 @Service
-public class CustomerService extends CrudServiceImpl<Customer, Long> {
+public class CustomerService extends CrudService<Customer, Long> {
 
     public CustomerService(CustomerRepository repository) {
         super(repository);
