@@ -16,7 +16,7 @@ Requires to have body with POST
 Requires to append id and body with PUT for update
 
 ## Reference
-1. Demo data can be download from https://www.mysqltutorial.org/mysql-sample-database.aspx
+ - Download the sample data from https://www.mysqltutorial.org/mysql-sample-database.aspx
 
 ## Learning
 
