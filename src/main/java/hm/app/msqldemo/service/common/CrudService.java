@@ -1,10 +1,6 @@
 package hm.app.msqldemo.service.common;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Spliterators;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -23,16 +19,12 @@ public abstract class CrudService<T, ID> {
         return repository.findById(id).get();
     }
 
-    public List<T> findAllById(ID... ids) {
-        return repository.findAllById(
-                StreamSupport.stream(Spliterators.spliteratorUnknownSize(Arrays.asList(ids).iterator(), 0), false)
-                        .collect(Collectors.toList()));
+    public List<T> findAllById(List<ID> ids) {
+        return repository.findAllById(ids);
     }
 
     public List<T> saveAll(List<T> entities) {
-        return repository
-                .saveAll(StreamSupport.stream(Spliterators.spliteratorUnknownSize(entities.iterator(), 0), false)
-                        .collect(Collectors.toList()));
+        return repository.saveAll(entities);
     }
 
     public T save(T entity) {

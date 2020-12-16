@@ -37,8 +37,8 @@ public abstract class CrudController<T, ID> {
     }
 
     @GetMapping("/{id}")
-    public List<T> get(@PathVariable ID id) {
-        return service.findAllById(id);
+    public T get(@PathVariable ID id) {
+        return service.findById(id);
     }
 
     @DeleteMapping("/{id}")
