@@ -1,9 +1,13 @@
 package hm.app.msqldemo.domain;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,5 +35,9 @@ public class Customer {
     private String country;
     private Long salesRepEmployeeNumber;
     private BigDecimal creditLimit;
+
+    @OneToMany(targetEntity = Order.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "customerNumber", referencedColumnName = "customerNumber")
+    private Set<Order> orders;
 
 }
